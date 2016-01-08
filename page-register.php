@@ -57,15 +57,16 @@ get_header();
 	        	<div class="col-md-4"></div>
 	        	<div class="col-md-5 col-sx-12">
 					<form method="post" action="" class="wp-user-form">
+
 							<label for="user_login"><?php _e('Username '); ?>: </label>
-							<input type="text" name="user_login" id="user_login" value="<?php echo $name; ?>" /><br /><br />
-
+							<input type="text" name="user_login" id="user_login" value="<?php echo $name; ?>" />
+							<br /><br />
 							<label for="user_email"><?php _e('Your Email'); ?>: </label>
-							<input type="text" name="user_email" id="user_email" value="<?php echo $email; ?>" /><br /><br />
-
+							<input type="text" name="user_email" id="user_email" value="<?php echo $email; ?>" />
+							<br /><br />
 							<label for="password"><?php _e('Password '); ?>: </label>
-							<input type="password" name="user_pass"  id="password" /><br /><br />
-
+							<input type="password" name="user_pass"  id="password" />
+							<br /><br />
 							<input type="submit" name="user-submit" class="user-submit" />
 					</form>
 					<?php echo $failed; ?>
