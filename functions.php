@@ -129,10 +129,12 @@ function enqueue_js_files() {
     $screen = get_current_screen();
     if ( 'appearance_page_customize_theme' == $screen->base ) {
         wp_enqueue_script( 'jquery' );
+        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js'  );
         wp_enqueue_script( 'media-upload' );
         wp_enqueue_script( 'thickbox' );
         wp_enqueue_script( 'my-upload' );
         wp_enqueue_script( 'my_custom_script', get_template_directory_uri() . '/js/media.js' );
+        wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
         wp_enqueue_style( 'thickbox' );
     }
 }

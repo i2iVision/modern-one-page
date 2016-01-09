@@ -1,7 +1,10 @@
 <?php get_header();?>
 
 <?php 
-$post_number = get_option('theme_name_slider_posts_number');
+// Retrieve data
+$theme_options = get_option( 'mop_theme_option' );
+
+$post_number = $theme_options['theme_name_slider_posts_number'];
 $the_post_query = new WP_Query(array('category_name' => 'slider', 'posts_per_page' => $post_number));
      ?>
 <div id="header-wrapper" class="container-fluid">
@@ -46,7 +49,7 @@ $the_post_query = new WP_Query(array('category_name' => 'slider', 'posts_per_pag
 </div><!-- END header-wrapper -->
 
 <?php 
-$about = get_option("theme_name_about_section_post"); 
+$about = $theme_options["theme_name_about_section_post"]; 
 $posts = get_post($about);
 if ($posts->post_status == "publish") :
 ?>
@@ -71,7 +74,7 @@ if ($posts->post_status == "publish") :
 <?php endif; ?>
 
 <?php 
-$service_id = get_option("theme_name_service_section"); 
+$service_id = $theme_options["theme_name_service_section"]; 
 $service_page = get_post($service_id);
 if ($service_page->post_status == "publish") :
 ?>
@@ -86,7 +89,7 @@ if ($service_page->post_status == "publish") :
 <?php endif; ?>
 
 <?php
-    $portfolio_number = get_option("theme_name_portfolio_section");
+    $portfolio_number = $theme_options["theme_name_portfolio_section"];
     
     $the_portfolio_query = new WP_Query(array('category_name' => 'portfolio', 'posts_per_page' => $portfolio_number));
     $counter = 0;
@@ -121,7 +124,7 @@ if ($portfolio_number > 0) :
 <?php endif; ?>
 
 <?php 
-$users_number = get_option("theme_name_user_section");
+$users_number = $theme_options["theme_name_user_section"];
 
 $users = get_users( array('orderby' => 'nicename', 'number' => $users_number, 'meta_key' => 'type', 'meta_value' => 'team',) ); 
 if ($users_number > 0) :
@@ -155,7 +158,7 @@ if ($users_number > 0) :
 <?php endif; ?>
 
 <?php 
-$news = get_option("theme_name_news_section");
+$news = $theme_options["theme_name_news_section"];
 if($news > 0) :
  ?>
 <div id="news-wrapper" class="container-fluid">
@@ -208,8 +211,8 @@ endif;
 <!-- End Send Contact Form -->
 
 <?php 
-$longitude = get_option("theme_name_longtitude");
-$latitude = get_option("theme_name_latitude");
+$longitude = $theme_options["theme_name_longtitude"];
+$latitude = $theme_options["theme_name_latitude"];
 $address = $longitude . "," . $latitude; ?>
 <div id="contact-wrapper" class="container-fluid" style="background-image: url(http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $address; ?>&zoom=13&scale=2&size=1280x1280&maptype=roadmap&sensor=true&format=png&language=en&visual_refresh=true&markers=size:mid%7Ccolor:red%7C)">
    <div id="contact-wrapper-opacity-bg">
